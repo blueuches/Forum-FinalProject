@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GoogleAuthController;
+use App\Http\Controllers\Backend\CommunityController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -15,9 +16,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -27,5 +26,14 @@ Route::middleware('auth')->group(function () {
 
 Route::get('auth/google',[GoogleAuthController::class,'redirect'])->name('google-auth');
 Route::get('auth/google/callback',[GoogleAuthController::class,'callbackGoogle']);
+
+Route::group(['middleware' => ['auth', 'verified']], function () {
+    Route::get('/dashboard', function () {
+        return Inertia::render('Dashboard');
+    })->name('dashboard');
+
+    Route::resource('communities', CommunityController::class);
+});
+
 
 require __DIR__.'/auth.php';
