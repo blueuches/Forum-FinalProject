@@ -3,7 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\Backend\CommunityController;
-use App\Http\Controllers\Frontend\SubredditController;
+use App\Http\Controllers\Backend\CommunityPostController;
+use App\Http\Controllers\Frontend\CommunityController as FrontendCommunityController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -28,7 +29,7 @@ Route::middleware('auth')->group(function () {
 Route::get('auth/google',[GoogleAuthController::class,'redirect'])->name('google-auth');
 Route::get('auth/google/callback',[GoogleAuthController::class,'callbackGoogle']);
 
-Route::get('/r/{slug}',[SubredditController::class, 'show'])->name('subreddit.show');
+Route::get('/r/{slug}',[FrontendCommunityController::class, 'show'])->name('subreddit.show');
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/dashboard', function () {
@@ -36,6 +37,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     })->name('dashboard');
 
     Route::resource('/dashboard/communities', CommunityController::class);
+    Route::resource('/dashboard/communities.posts', CommunityPostController::class);
 });
 
 
