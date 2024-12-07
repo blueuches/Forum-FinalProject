@@ -63,9 +63,18 @@ defineProps({
                                     <td class="px-6 py-4 text-right text-sm">
                                         <Link
                                             :href="route('communities.edit',community.id)"
-                                            class="text-indigo-600 hover:text-indigo-900"
+                                            class="text-indigo-600 hover:text-indigo-900 mr-3"
                                         >
                                             Edit
+                                        </Link>
+                                        <Link
+                                            :href="route('communities.destroy',community.id)"
+                                            class="text-red-600 hover:text-red-900"
+                                            method="delete"
+                                            as="button"
+                                            type="button"
+                                        >
+                                            Delete
                                         </Link>
                                     </td>
                                 </tr>
