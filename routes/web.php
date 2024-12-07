@@ -29,7 +29,7 @@ Route::middleware('auth')->group(function () {
 Route::get('auth/google',[GoogleAuthController::class,'redirect'])->name('google-auth');
 Route::get('auth/google/callback',[GoogleAuthController::class,'callbackGoogle']);
 
-Route::get('/r/{slug}',[FrontendCommunityController::class, 'show'])->name('subreddit.show');
+Route::get('/r/{slug}',[FrontendCommunityController::class, 'show'])->name('frontend.communities.show');
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/dashboard', function () {
