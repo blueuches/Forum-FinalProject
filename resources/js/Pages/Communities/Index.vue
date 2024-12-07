@@ -61,12 +61,12 @@ defineProps({
                                         {{ community.slug }}
                                     </td>
                                     <td class="px-6 py-4 text-right text-sm">
-                                        <a
-                                            href="#"
+                                        <Link
+                                            :href="route('communities.edit',community.id)"
                                             class="text-indigo-600 hover:text-indigo-900"
                                         >
                                             Edit
-                                        </a>
+                                        </Link>
                                     </td>
                                 </tr>
                             </tbody>

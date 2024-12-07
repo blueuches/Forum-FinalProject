@@ -6,14 +6,14 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 
-const form = useForm({
-    name: '',
-    description: '',
-    slug: '',
+const props = defineProps({
+    community: Object,
 });
 
+const form = useForm(props.community);
+
 const submit = () => {
-    form.post(route('communities.store'));
+    form.put(route('communities.update',props.community.id));
 };
 </script>
 
@@ -25,7 +25,7 @@ const submit = () => {
             <h2
                 class="text-xl font-semibold leading-tight text-gray-800"
             >
-                Create Community
+                Edit Community
             </h2>
         </template>
 
@@ -71,7 +71,7 @@ const submit = () => {
                                 :class="{ 'opacity-25': form.processing }"
                                 :disabled="form.processing"
                             >
-                                Store
+                                Update
                             </PrimaryButton>
                         </div>
                     </form>
