@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Auth;
 
 class PostShowResource extends JsonResource
 {
@@ -21,6 +22,7 @@ class PostShowResource extends JsonResource
             'username'=> $this->user->username,
             'slug'=>$this->slug,
             'url'=>$this->url,
+            'owner'=>Auth::id() == $this->user_id ? true : false,
         ];
     }
 }
