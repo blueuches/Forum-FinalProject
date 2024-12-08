@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Support\Facades\Redirect;
 
 class GoogleAuthController extends Controller
 {
@@ -29,11 +30,11 @@ class GoogleAuthController extends Controller
 
                 Auth::login($new_user);
 
-                return redirect()->intended('dashboard');
+                return Redirect::route('communities.index');
             }else{
                 Auth::login($user);
 
-                return redirect()->intended('dashboard');
+                return Redirect::route('communities.index');
             }
         }catch(\Throwable $th){
             dd('Something wen wrong!'.$th->getMessage());
