@@ -56,7 +56,9 @@ defineProps({
                             <tbody class="bg-white divide-y divide-gray-200">
                                 <tr v-for="community in communities.data" :key="community.id">
                                     <td class="px-6 py-4 text-sm font-medium text-gray-900">
-                                        {{ community.name }}
+                                        <Link :href="route('frontend.communities.show', community.slug)" class="text-blue-500 hover:text-blue-700 font-semibold">
+                                            {{ community.name }}
+                                        </Link>
                                     </td>
                                     <td class="px-6 py-4 text-sm text-gray-500">
                                         {{ community.slug }}
