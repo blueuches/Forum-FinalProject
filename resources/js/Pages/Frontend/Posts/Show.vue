@@ -9,8 +9,12 @@
                         </Link>
                     </h2>
                 </div>
-                <div class="m-2 p-2 bg-white text-sm text-slate-400">
-                    <div class="flex flex-col md:flex-row justify-between m-2">
+                <div class="flex m-2 p-2 bg-white text-sm text-slate-400">
+                    <div> 
+                        <!--Hello-->
+                    </div> 
+                    <div class="w-full">
+                        <div class="flex flex-col md:flex-row justify-between m-2">
                         <div>
                             Posted by
                             <span class="ml-2 text-slate-700"> {{post.data.username  }}</span>
@@ -52,7 +56,7 @@
                             </div>
                         </form>
                     </div>
-
+                    </div>
                 </div>
             </div>
             <div class="w-full md:w-4/12 p-4">
@@ -67,6 +71,7 @@
     <script  setup>
     import GuestLayout from "@/Layouts/GuestLayout.vue";
     import { Link, useForm} from "@inertiajs/vue3";
+    import PostVote from "@/Components/PostVote.vue";
     
     const props = defineProps({
         community: Object,
