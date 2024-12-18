@@ -35,7 +35,7 @@ const submit = () => {
 
         <div class="py-12">
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-                <div class="max-w-md mx-auto bg-white-200 m-2 p-6">
+                <div class="max-w-md mx-auto bg-white-200 m-2 p-6 ">
                     <form @submit.prevent="submit">
                         <div>
                             <InputLabel for="title" value="Title" />
@@ -51,29 +51,14 @@ const submit = () => {
 
                             <InputError class="mt-2" :message="form.errors.title" />
                         </div>
-                        <div>
-                            <InputLabel for="url" value="Url" />
 
-                            <TextInput
-                                id="url"
-                                type="url"
-                                class="mt-1 block w-full"
-                                v-model="form.url"
-                                autocomplete="url"
-                            />
-
-                            <InputError class="mt-2" :message="form.errors.url" />
-                        </div>
                         <div class="mt-4">
                             <InputLabel for="description" value="Description" />
 
-                            <TextInput
-                                id="description"
-                                type="text"
-                                class="mt-1 block w-full"
-                                v-model="form.description"
-                                autocomplete="description"
-                            />
+                            <textarea id="description" class="mt-1 block w-full h-40 p-2 border-gray-300 rounded-md shadow-sm focus:border-green-600 focus:ring focus:ring-green-600 focus:ring-opacity-50" 
+                            v-model="form.description" 
+                            autocomplete="description" >
+                            </textarea>
 
                             <InputError class="mt-2" :message="form.errors.description" />
                         </div>

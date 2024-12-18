@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\NoProfanity;
 
 class CommunityStoreRequest extends FormRequest
 {
@@ -22,8 +23,8 @@ class CommunityStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=>['required','unique:communities'],
-            'description'=>['required','min:5'],
+            'name'=>['required','unique:communities',new NoProfanity],
+            'description'=>['required','min:5', new NoProfanity],
         ];
     }
 }

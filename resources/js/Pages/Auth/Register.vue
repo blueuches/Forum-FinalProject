@@ -25,7 +25,7 @@ const submit = () => {
     <GuestLayout>
         <Head title="Register" />
 
-        <form @submit.prevent="submit" class="max-w-md mx-auto bg-white shadow rounded-md p-6">
+        <form @submit.prevent="submit" class="max-w-md mx-auto bg-white shadow rounded-md p-6 mt-7">
             <div>
                 <InputLabel for="name" value="Name" />
 
@@ -112,7 +112,7 @@ const submit = () => {
                 </Link>
 
                 <PrimaryButton
-                    class="ms-4"
+                    class="ms-4 bg-[#a2cf6e] hover:bg-green-700"
                     :class="{ 'opacity-25': form.processing }"
                     :disabled="form.processing"
                 >

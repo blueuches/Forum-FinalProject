@@ -37,7 +37,7 @@ const submit = () => {
             {{ status }}
         </div>
 
-        <form @submit.prevent="submit" class="max-w-md mx-auto bg-white shadow rounded-md p-6">
+        <form @submit.prevent="submit" class="max-w-md mx-auto bg-white shadow-lg rounded-md p-6 mt-10">
             <div>
                 <InputLabel for="email" value="Email" />
 
@@ -46,7 +46,6 @@ const submit = () => {
                     type="email"
                     class="mt-1 block w-full"
                     v-model="form.email"
-                    required
                     autofocus
                     autocomplete="username"
                 />
@@ -62,7 +61,6 @@ const submit = () => {
                     type="password"
                     class="mt-1 block w-full"
                     v-model="form.password"
-                    required
                     autocomplete="current-password"
                 />
 
@@ -88,7 +86,7 @@ const submit = () => {
                 </Link>
 
                 <PrimaryButton
-                    class="ms-4"
+                    class="ms-4 bg-[#a2cf6e] hover:bg-green-700"
                     :class="{ 'opacity-25': form.processing }"
                     :disabled="form.processing"
                 >
@@ -98,7 +96,7 @@ const submit = () => {
 
                         <!-- Continue with Google -->
                         <div class="mt-4 flex justify-center">
-                <a :href="route('google-auth')" class="bg-[#4b830d] inline-flex items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                <a :href="route('google-auth')" class="inline-flex items-center px-4 py-2  bg-[#a2cf6e] border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                     <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M23.5 12.275c0-.85-.075-1.675-.212-2.475H12v4.695h6.455a5.52 5.52 0 0 1-2.39 3.63v2.99h3.855c2.26-2.08 3.58-5.15 3.58-8.84z" fill="#4285F4"/>
                         <path d="M12 24c3.24 0 5.96-1.07 7.94-2.9l-3.855-2.99c-1.08.72-2.45 1.15-4.085 1.15a7.62 7.62 0 0 1-7.19-5.18H1.78v3.07A12.01 12.01 0 0 0 12 24z" fill="#34A853"/>

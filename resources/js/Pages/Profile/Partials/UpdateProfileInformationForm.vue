@@ -17,8 +17,10 @@ defineProps({
 const user = usePage().props.auth.user;
 
 const form = useForm({
+    username: user.username,
     name: user.name,
     email: user.email,
+    google_id: user.google_id,
 });
 </script>
 
@@ -55,6 +57,21 @@ const form = useForm({
             </div>
 
             <div>
+                <InputLabel for="username" value="Username" />
+
+                <TextInput
+                    id="username"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.username"
+                    required
+                    autocomplete="username"
+                />
+
+                <InputError class="mt-2" :message="form.errors.username" />
+            </div>
+
+            <div>
                 <InputLabel for="email" value="Email" />
 
                 <TextInput
@@ -63,10 +80,25 @@ const form = useForm({
                     class="mt-1 block w-full"
                     v-model="form.email"
                     required
-                    autocomplete="username"
+                    autocomplete="email"
                 />
 
                 <InputError class="mt-2" :message="form.errors.email" />
+            </div>
+
+            <div>
+                <InputLabel for="google_id" value="Google_id" placeholder="No google account"/>
+
+                <TextInput
+                    id="google_id"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.google_id"
+                    required
+                    autocomplete="google_id"
+                />
+
+                <InputError class="mt-2" :message="form.errors.google_id" />
             </div>
 
             <div v-if="mustVerifyEmail && user.email_verified_at === null">

@@ -7,7 +7,7 @@
                 >
                     r/{{ community.name }}
                 </h2>
-                <Link v-if="$page.props.auth.auth_check" :href="route('communities.posts.create', community.slug)" class="px-3 py-2 rounded bg-indigo-500">Create Post</Link>
+                <Link v-if="$page.props.auth.auth_check" :href="route('communities.posts.create', community.slug)" class="px-3 py-2 rounded bg-[#a2cf6e] text-white">Create Post</Link>
             </div>
     </template>
 
@@ -20,7 +20,7 @@
         </div>
         <div class="w-4/12 p-4">
             <div>
-                <h2 class="font-semibold text-lg p-6 bg-indigo-700 rounded-t-lg text-white">About {{ community.name }}</h2>
+                <h2 class="font-semibold text-lg p-6 bg-[#a2cf6e] rounded-t-lg text-white">About {{ community.name }}</h2>
                 <p class="bg-white p-4 rounded-b-large">{{ community.description }}</p>
             </div>
             <CommunityList :communities="communities.data" class="mt-4">

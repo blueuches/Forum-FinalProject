@@ -52,29 +52,14 @@ const submit = () => {
 
                             <InputError class="mt-2" :message="form.errors.title" />
                         </div>
-                        <div>
-                            <InputLabel for="url" value="Url" />
 
-                            <TextInput
-                                id="url"
-                                type="url"
-                                class="mt-1 block w-full"
-                                v-model="form.url"
-                                autocomplete="url"
-                            />
-
-                            <InputError class="mt-2" :message="form.errors.url" />
-                        </div>
                         <div class="mt-4">
                             <InputLabel for="description" value="Description" />
 
-                            <TextInput
-                                id="description"
-                                type="text"
-                                class="mt-1 block w-full"
-                                v-model="form.description"
-                                autocomplete="description"
-                            />
+                            <textarea id="description" class="mt-1 block w-full h-40 p-2 border-gray-300 rounded-md shadow-sm focus:border-green-600 focus:ring focus:ring-green-600 focus:ring-opacity-50" 
+                            v-model="form.description" 
+                            autocomplete="description" >
+                            </textarea>
 
                             <InputError class="mt-2" :message="form.errors.description" />
                         </div>
@@ -83,7 +68,7 @@ const submit = () => {
                         <div class="mt-4 flex items-center justify-end">
 
                             <PrimaryButton
-                                class="ms-4"
+                                class="ms-4 bg-[#a2cf6e] hover:bg-green-700"
                                 :class="{ 'opacity-25': form.processing }"
                                 :disabled="form.processing"
                             >

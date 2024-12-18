@@ -14,7 +14,7 @@ defineProps({
     <AuthenticatedLayout>
         <template #header>
             <h2 class="text-2xl font-bold leading-tight text-gray-800">
-                All Communities
+                Your Communities
             </h2>
         </template>
 
@@ -24,7 +24,7 @@ defineProps({
                     <!-- Add Community Button -->
                     <div class="flex justify-end items-center px-6 py-4 border-b border-gray-200">
 
-                        <Link :href="route('communities.create')"  class="bg-indigo-600 hover:bg-indigo-700 text-dark font-bold py-2 px-4 rounded shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50"> Add Community</Link>
+                        <Link :href="route('communities.create')"  class="bg-[#a2cf6e] hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50"> Add Community</Link>
 
                     </div>
 
@@ -56,7 +56,7 @@ defineProps({
                             <tbody class="bg-white divide-y divide-gray-200">
                                 <tr v-for="community in communities.data" :key="community.id">
                                     <td class="px-6 py-4 text-sm font-medium text-gray-900">
-                                        <Link :href="route('frontend.communities.show', community.slug)" class="text-blue-500 hover:text-blue-700 font-semibold">
+                                        <Link :href="route('frontend.communities.show', community.slug)" class="text-green-600 hover:text-green-800 font-semibold">
                                             {{ community.name }}
                                         </Link>
                                     </td>

@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\NoProfanity;
 
 class StorePostRequest extends FormRequest
 {
@@ -22,9 +23,9 @@ class StorePostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'=>['required','min:5'],
+            'title'=>['required','min:5', new NoProfanity],
             'url'=>['nullable','url'],
-            'description'=>['nullable','min:10'],
+            'description'=>['nullable','min:10', new NoProfanity],
         ];
     }
 }

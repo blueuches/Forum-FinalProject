@@ -13,9 +13,9 @@ const showingNavigationDropdown = ref(false);
 <template>
     <div>
 
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-slate-100">
             <nav
-                class="border-b border-gray-100 bg-white"
+                class="border-b border-gray-100 bg-[#a2cf6e]"
             >
                 <!-- Primary Navigation Menu -->
                 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -86,7 +86,7 @@ const showingNavigationDropdown = ref(false);
                             <template v-else>
                                 <Link
                                     :href="route('login')"
-                                    class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                    class="rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
                                 >
                                     Log in
                                 </Link>
@@ -94,7 +94,7 @@ const showingNavigationDropdown = ref(false);
                                 <Link
                                 
                                     :href="route('register')"
-                                    class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                    class="rounded-md px-3 py-2 text-white ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
                                 >
                                     Register
                                 </Link>
@@ -152,15 +152,20 @@ const showingNavigationDropdown = ref(false);
                     }"
                     class="sm:hidden"
                 >
-                    <div class="space-y-1 pb-3 pt-2">
+                    <div class="space-y-1 pb-3 pt-2 text-white">
                         <ResponsiveNavLink
-                            :href="route('communities.index')"
-                            :active="route().current('communities.index')"
+                            :href="route('login')"
                         >
-                            Communities
+                            Login
                         </ResponsiveNavLink>
                     </div>
-
+                    <div class="space-y-1 pb-3 pt-2 text-white">
+                        <ResponsiveNavLink
+                            :href="route('register')"
+                        >
+                            Register
+                        </ResponsiveNavLink>
+                    </div>
                 </div>
             </nav>
 
@@ -176,6 +181,7 @@ const showingNavigationDropdown = ref(false);
 
             <!-- Page Content -->
             <main class="max-w-7xl mx-auto mt-6 px-4 sm:px-6 lg:px-8">
+
                 <slot />
             </main>
         </div>
